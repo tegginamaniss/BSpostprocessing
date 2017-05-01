@@ -39,6 +39,8 @@ def deg2rad(data):
 
 ############################################################
 # Vector functions
+
+
 def normalized(vector):
     return vector / numpy.sqrt((vector ** 2).sum(-1))[..., numpy.newaxis]
 

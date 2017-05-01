@@ -82,7 +82,8 @@ def calculate_future_cpa(acft1, acft2):
     # Calculate the CPA vector
     future_cpa = numpy.array([numpy.linalg.norm(relpos - numpy.dot(relpos, normvel) * normvel)
                               for relpos, normvel in zip(rel_pos, norm_vel)])
-
+    for p in future_cpa:
+        print m2nm(p)
     return future_cpa
 
 
@@ -134,6 +135,7 @@ def check_actual_los(statistics, pz_radius):
                       if (pair['distance'] < pz_radius).any()]
 
     print
+
     for los in los_collection:
         print '{ac1} and {ac2} in LOS from {t0} s \tto {t1} s\t, minimum distance: {cpa}'.format(
             ac1=los['acft1'], ac2=los['acft2'],
@@ -340,7 +342,7 @@ def calculate_stats(aircraft):
     los_data = check_actual_los(relevant_pairs, nm2m(5.0))
     conflict_data = check_conflicts(relevant_pairs, nm2m(5.0))
 
-    do_plot = False
+    do_plot = True
 
     if do_plot:
         plot_functions.plot_los(los_data)

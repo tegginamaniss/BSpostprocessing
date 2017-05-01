@@ -20,19 +20,6 @@ def _strip_header(logfile):
 def wgs84_to_ecef(lla, unit="rad"):
     """Converts coordinates (altitude, latitude, longitude) in WGS84 to 
     coordinates (x,y,z) in the ECEF reference frame.
-
-    Parameters
-    ----------
-    lla : array_like
-        Geodetic latitude, geodetic longitude and altitude above the WGS84
-        ellipsoid (m).
-    unit : string, optional
-        Unit of the latitude and longitude, deg or rad (default is rad).
-
-    Returns
-    -------
-    x : numpy_array
-        Coordinates in ECEF frame (m).
     """
 
     # Data from the WGS84 model
@@ -117,7 +104,7 @@ def parse_logfile(fname):
 def main():
     '''Entry point when running as a script'''
 
-    # Check if we started with the correct arguemnts (either none or one)
+    # Check if we started with the correct arguments (either none or one)
     n_args = len(sys.argv)
 
     if n_args == 1:
@@ -131,6 +118,8 @@ def main():
 
     for acft in aircraft:
         print(acft.callsign)
+        print(acft.column('posx').shape)
+    # print(acft.column('posx').shape)
 
 if __name__ == '__main__':
     import sys
