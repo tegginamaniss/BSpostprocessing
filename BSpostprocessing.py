@@ -82,8 +82,8 @@ def calculate_future_cpa(acft1, acft2):
     # Calculate the CPA vector
     future_cpa = numpy.array([numpy.linalg.norm(relpos - numpy.dot(relpos, normvel) * normvel)
                               for relpos, normvel in zip(rel_pos, norm_vel)])
-    for p in future_cpa:
-        print m2nm(p)
+    # for p in future_cpa:
+    #     print m2nm(p)
     return future_cpa
 
 

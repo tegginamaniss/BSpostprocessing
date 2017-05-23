@@ -118,7 +118,7 @@ def main():
 
     for acft in aircraft:
         print(acft.callsign)
-        print(acft.column('posx').shape)
+        # print(acft.column('posx').shape)
     # print(acft.column('posx').shape)
 
 if __name__ == '__main__':
